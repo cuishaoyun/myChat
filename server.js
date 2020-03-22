@@ -10,19 +10,14 @@ exports.getSocketIo = (server)=>{
             socket.broadcast.emit('tellPeopleOnline',info);
         })
 
-		socket.on('disconnect',(info)=>{
+		/* socket.on('disconnect',(info)=>{
             console.log(socket);
-            //socket.broadcast.emit('tellPeople',info);
-		})
+            socket.broadcast.emit('tellPeople',info);
+		}) */
 
-		socket.on('chat message',(res)=>{
-			console.log('message:'+res);
-			io.emit('return message',res);
+		socket.on('sendMessage',(res)=>{
+			socket.broadcast.emit('broadcastMessage',res);
 		})
-
-		socket.on('click',(res)=>{
-			console.log(res);
-		}) 
 	})
 
 }
