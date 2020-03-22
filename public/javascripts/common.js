@@ -1,7 +1,7 @@
 "use strict";
-const _= require('lodash');
+import _ from 'lodash';
 
-exports.getTime = ()=>{
+export function getTime(){
     let now = new Date();
     let year = now.getFullYear(); //年
     let month = now.getMonth() +1; //月
