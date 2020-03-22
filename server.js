@@ -1,9 +1,9 @@
-var socket_io = require('socket.io');
+import { listen } from 'socket.io';
 
-module.exports = exports = {};
+export default exports = {};
 
-exports.getSocketIo = (server)=>{
-	var io = socket_io.listen(server);
+export function getSocketIo(server){
+	var io = listen(server);
 	io.sockets.on('connection',(socket)=>{
         console.log('a user connect');
         socket.on('login',(info)=>{
