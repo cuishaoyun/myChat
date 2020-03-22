@@ -92,6 +92,7 @@
     $(".btn").click(function(){
       let nowTime = getTime();
       let userName = $("#input-32").val();
+      localStorage.setItem("username", userName);
       socket.emit('login',JSON.stringify({'username':userName,'nowtime':nowTime}));
       $(".htmleaf-container").hide();
     })
@@ -110,13 +111,17 @@
 
     $('form').submit(function(e){
       e.preventDefault(); // prevents page reloading
-      socket.emit('sendMessage', $('#m').val());
+      let info = {"message":$('#m').val(),'username':localStorage.getItem("username")};
+      socket.emit('sendMessage', JSON.stringify(info)); 
       $('#messages').append($('<li>').text('我:'+$('#m').val()+' '+getTime()));
       return false;
     });
 
     socket.on('broadcastMessage', function(msg){
-      $('#messages').append($('<li>').text(msg));
+      let info = JSON.parse(msg);
+      let name = info.username;
+      let message = info.message;
+      $('#messages').append($('<li>').text(`${name}:${message} ${getTime()}`));
     });
  /*  $(function () {
     var socket = io();
