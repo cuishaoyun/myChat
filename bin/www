@@ -16,16 +16,16 @@ var axios = require('axios');
  * Get port from environment and store in Express.
  */
 
-function getRedis(){
-  let res = '';
-  try{
-    res = rediscli.createClient();
-  }catch(err){
-    console.log('redis 无法连接:'+err);
-  }
-  return res;
+function getredis(){
+    let res = '';
+    try{
+      res = rediscli.createClient();
+    }catch(err){
+      throw 'redis not connect';
+    }
+    return res;
 }
-global.pool = getRedis();
+global.pool = getredis();
 global.axios = axios;
 global.mysql = mysqlcli.createPool({
   connectionLimit : config.MYSQL.connectionLimit,
