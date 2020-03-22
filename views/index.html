@@ -57,7 +57,7 @@
   <script src="http://i.gtimg.cn/qzone/biz/gdt/lib/jquery/jquery-2.1.4.js?max_age=31536000"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script src="javascripts/socket.io.js"></script>
-
+  <script src="javascripts/layer/layer.js"></script>
   
   <script>
 
@@ -100,7 +100,11 @@
     socket.on('tellPeopleOnline',(info)=>{
       let res = JSON.parse(info);
       let content = res.nowtime +' '+res.username+'上线';
-      console.log(content);
+      layer.msg(content, {
+      offset: 't',
+      anim: 4
+    });
+      //console.log(content);
     })
 
     /* socket.on('return message',(info) => {
