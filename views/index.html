@@ -78,6 +78,9 @@
         sec = sec <10 ? '0'+sec:sec;
 
         let days = ['星期一','星期二','星期三','星期四','星期五','星期六','星期日'];
+        if(!day){
+          day = 7;
+        }
         day = days[day-1];
 
         let fullTime = year+'-'+month+'-'+date+' '+hour+':'+minu+':'+sec+' '+day;

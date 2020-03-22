@@ -11,7 +11,6 @@ exports.getSocketIo = (server)=>{
         })
 
 		socket.on('disconnect',(info)=>{
-            console.log('1212')
             console.log(socket);
             //socket.broadcast.emit('tellPeople',info);
 		})
