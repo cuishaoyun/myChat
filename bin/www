@@ -17,12 +17,13 @@ var axios = require('axios');
  */
 
 function getRedis(){
+  let res = '';
   try{
-    console.log('1111111111111111111111111111')
-    return rediscli.createClient();
+    res = rediscli.createClient();
   }catch(err){
     console.log('redis 无法连接:'+err);
   }
+  return res;
 }
 global.pool = getRedis();
 global.axios = axios;
