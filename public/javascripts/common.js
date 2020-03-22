@@ -1,5 +1,7 @@
+"use strict";
+const _= require('lodash');
 
-exports.getTime = () =>{
+exports.getTime = ()=>{
     let now = new Date();
     let year = now.getFullYear(); //年
     let month = now.getMonth() +1; //月
@@ -22,5 +24,3 @@ exports.getTime = () =>{
 
     return fullTime;
 }
-
-module.exports = exports = {};
