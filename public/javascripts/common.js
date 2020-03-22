@@ -1,4 +1,3 @@
-module.exports = exports ={};
 
 exports.getTime = () =>{
     let now = new Date();
@@ -23,3 +22,5 @@ exports.getTime = () =>{
 
     return fullTime;
 }
+
+module.exports = exports = {};
