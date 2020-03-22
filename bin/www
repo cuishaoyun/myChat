@@ -25,7 +25,7 @@ function getredis(){
     }
     return res;
 }
-global.pool = getredis();
+//global.pool = getredis();
 global.axios = axios;
 global.mysql = mysqlcli.createPool({
   connectionLimit : config.MYSQL.connectionLimit,
